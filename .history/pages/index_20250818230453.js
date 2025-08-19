@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <Canvas shadows onPointerDown={(e) => e.target.requestPointerLock()}>
       <Fisheye zoom={0.4}>
-        <Environment files="/images/night.hdr" ground={{ scale: 100 }} />
+        <Environment files="/night.hdr" ground={{ scale: 100 }} />
         <directionalLight intensity={0.7} castShadow shadow-bias={-0.0004} position={[-20, 20, 20]}>
           <orthographicCamera attach="shadow-camera" args={[-20, 20, 20, -20]} />
         </directionalLight>

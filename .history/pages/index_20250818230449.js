@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <Canvas shadows onPointerDown={(e) => e.target.requestPointerLock()}>
       <Fisheye zoom={0.4}>
-        <Environment files="/images/night.hdr" ground={{ scale: 100 }} />
+        <Environment files="/night.hdr" ground={{ scale: 100 }} />
         <directionalLight intensity={0.7} castShadow shadow-bias={-0.0004} position={[-20, 20, 20]}>
           <orthographicCamera attach="shadow-camera" args={[-20, 20, 20, -20]} />
         </directionalLight>
@@ -34,7 +34,7 @@ export default function Home() {
             </Controller>
           </KeyboardControls>
           <RigidBody type="fixed" colliders="trimesh">
-            <Gltf castShadow receiveShadow rotation={[-Math.PI / 2, 0, 0]} scale={0.11} src="/images/fantasy_game_inn2-transformed.glb" />
+            <Gltf castShadow receiveShadow rotation={[-Math.PI / 2, 0, 0]} scale={0.11} src="/fantasy_game_inn2-transformed.glb" />
           </RigidBody>
         </Physics>
       </Fisheye>

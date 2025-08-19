@@ -6,8 +6,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.3",
     "@react-three/fiber": "^9.3.0",
+    "@react-three/rapier": "^2.1.0",
     "date-fns": "^2.29.3",
+    "ecctrl": "^1.0.97",
     "gray-matter": "^4.0.3",
     "next": "latest",
     "react": "latest",
