@@ -40,3 +40,13 @@ export default function Home() {
     </Canvas>
   )
 }
+
+
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
