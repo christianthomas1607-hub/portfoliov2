@@ -6,6 +6,7 @@ import { Gltf,
   KeyboardControls } from '@react-three/drei'
 import Controller from 'ecctrl'
 
+
 export default function Page() {
     const keyboardMap = [
     { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
@@ -16,7 +17,7 @@ export default function Page() {
     { name: 'run', keys: ['Shift'] },
   ]
   return (
-    <div style={{ width: '100vw', height: '100vh', overflow: 'hidden', margin: 0 }}>
+    <div style={{ width: '100vw', height: '100vh', overflow: 'hidden', mar }}>
       <Canvas>     
         {/* <Environment files="/night.hdr" ground={{scale: 200 }} /> */}
         <directionalLight intensity={0.7} castShadow shadow-bias={-0.0004} position={[-20, 20, 20]}>

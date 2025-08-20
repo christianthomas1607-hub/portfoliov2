@@ -6,6 +6,7 @@ import { Gltf,
   KeyboardControls } from '@react-three/drei'
 import Controller from 'ecctrl'
 
+
 export default function Page() {
     const keyboardMap = [
     { name: 'forward', keys: ['ArrowUp', 'KeyW'] },

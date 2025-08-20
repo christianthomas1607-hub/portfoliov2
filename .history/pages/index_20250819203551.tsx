@@ -6,6 +6,7 @@ import { Gltf,
   KeyboardControls } from '@react-three/drei'
 import Controller from 'ecctrl'
 
+
 export default function Page() {
     const keyboardMap = [
     { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
@@ -16,8 +17,8 @@ export default function Page() {
     { name: 'run', keys: ['Shift'] },
   ]
   return (
-    <div style={{ width: '100vw', height: '100vh', overflow: 'hidden', margin: 0 }}>
-      <Canvas>     
+    <div style={{ width: '100vw', height: '100vh', overflow: 'hidden' }}>
+      <Canvas  style={{ background: 'white' }} shadows>     
         {/* <Environment files="/night.hdr" ground={{scale: 200 }} /> */}
         <directionalLight intensity={0.7} castShadow shadow-bias={-0.0004} position={[-20, 20, 20]}>
           <orthographicCamera attach="shadow-camera" args={[-20, 20, 20, -20]} />
@@ -44,6 +45,13 @@ export default function Page() {
             </Controller>
           </KeyboardControls>
           <RigidBody type="fixed" colliders="trimesh">
+            {/*<Gltf castShadow receiveShadow rotation={[-Math.PI / 2, 0, 0]} scale={0.11} src="/fantasy_game_inn2-transformed.glb" /> */}
+            {/* <Gltf 
+            position={[1, -4, -80.75]}
+            castShadow receiveShadow 
+            // rotation={[-Math.PI / 2, 0, 0]}
+            scale={12}
+            src="/shipwreck_turned_into_hideout.glb" /> */}
             <Gltf castShadow 
             receiveShadow 
             position={[0, 2.85, 0]}

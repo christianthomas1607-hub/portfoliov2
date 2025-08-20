@@ -5,6 +5,7 @@ import { Gltf,
   Environment, 
   KeyboardControls } from '@react-three/drei'
 import Controller from 'ecctrl'
+import '../styles/global.css'
 
 export default function Page() {
     const keyboardMap = [
