@@ -1,4 +1,4 @@
-import { useTexture, Text  } from '@react-three/drei'
+import { useTexture, Text, Gltf  } from '@react-three/drei'
 import HolographicMaterial from "../components/HolographicMaterial";
 import * as THREE from 'three';
 import { useLoader } from "@react-three/fiber";
@@ -26,25 +26,10 @@ export default function BoxStyle({ x, y, z, rotationY, image, title, index, onCl
 //   tex.encoding = THREE.sRGBEncoding;
 const texture = useLoader(TextureLoader, image); // 
 
+const triangleArray = new Float32Array([-10, -20, 0, 0, 0, 0, -20, 0, 0]);
+
   return (
     <>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
         <>
         <group position={[x, y, z]} rotation={[0, 0, 0]} onClick={onClick}>
           <mesh>
@@ -73,6 +58,7 @@ const texture = useLoader(TextureLoader, image); //
         <boxGeometry args={[0, 1, 1]} /> {/* Slightly larger box for glow */}
         <GlowMaterial />
       </mesh>
+      <Gltf castShadow receiveShadow position={[0, -1.75, 0]}  scale={.06} src="/images/holo-puck-transformed.glb" />
         </group>
         </>
      

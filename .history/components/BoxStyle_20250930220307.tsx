@@ -1,11 +1,10 @@
-import { useTexture, Text  } from '@react-three/drei'
+import { useTexture, Text, Gltf  } from '@react-three/drei'
 import HolographicMaterial from "../components/HolographicMaterial";
 import * as THREE from 'three';
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import GlowMaterial from '../components/GlowMaterial';
-
-// npm install three @react-three/fiber @react-three/drei
+import React, { useMemo } from "react";
 
 
 type BoxStyleProps = {
@@ -26,25 +25,10 @@ export default function BoxStyle({ x, y, z, rotationY, image, title, index, onCl
 //   tex.encoding = THREE.sRGBEncoding;
 const texture = useLoader(TextureLoader, image); // 
 
+const triangleArray = new Float32Array([-1, -2, 0, 0, 0, 0, -2, 0, 0]);
+
   return (
     <>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
         <>
         <group position={[x, y, z]} rotation={[0, 0, 0]} onClick={onClick}>
           <mesh>
@@ -73,6 +57,25 @@ const texture = useLoader(TextureLoader, image); //
         <boxGeometry args={[0, 1, 1]} /> {/* Slightly larger box for glow */}
         <GlowMaterial />
       </mesh>
+      <Gltf castShadow receiveShadow position={[0, -1.75, 0]}  scale={.06} src="/images/holo-puck-transformed.glb" />
+  <mesh position={[0, -.69, 0]} rotation={[0, Math.PI / 2, 0]}>
+        <bufferGeometry>
+          <bufferAttribute
+            attach="attributes-position"
+            array={new Float32Array([0, -1, 0,  -0.5, 1, 0,  0.6, 1, 0])}
+            count={3}
+            itemSize={3}
+          />
+          <bufferAttribute
+            attach="attributes-normal"
+            array={new Float32Array([0, -1, 0,  -0.6, 1, 0,  0.6, 1, 0])}
+            count={3}
+            itemSize={3}
+          />
+        </bufferGeometry>
+        <GlowMaterial />
+      </mesh>
+      
         </group>
         </>
      

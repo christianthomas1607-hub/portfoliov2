@@ -28,23 +28,6 @@ const texture = useLoader(TextureLoader, image); //
 
   return (
     <>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
         <>
         <group position={[x, y, z]} rotation={[0, 0, 0]} onClick={onClick}>
           <mesh>
@@ -73,6 +56,7 @@ const texture = useLoader(TextureLoader, image); //
         <boxGeometry args={[0, 1, 1]} /> {/* Slightly larger box for glow */}
         <GlowMaterial />
       </mesh>
+      
         </group>
         </>
      
