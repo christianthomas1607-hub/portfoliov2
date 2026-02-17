@@ -9,18 +9,9 @@ import Popup from '../components/popup'
 import Controls from '../components/Controls'
 import { WordAndImage as WordAndImageType } from '../components/data'
 
-import { A11y } from '@react-three/a11y'
-
-
-// function simulateKeyEvent(key: string, type: 'keydown' | 'keyup') {
-//   window.dispatchEvent(new KeyboardEvent(type, { key }))
-// }
 
 
 
-function simulateKeyEvent( key: string, type: 'keydown' | 'keyup') {
-  window.dispatchEvent(new KeyboardEvent(type, {key}))
-}
 
 export default function Page() {
   const keyboardMap = [
@@ -52,12 +43,12 @@ const [selectedItem, setSelectedItem] = useState<WordAndImageType | null>(null)
     const a11yButtons = document.querySelectorAll('[r3f-a11y="true"]');
 
 
-    //Removes project titles’ accessibility because they interfere with pop up accessible navigation.
-    a11yButtons.forEach(a11yButton => {
-        a11yButton.setAttribute("aria-hidden", "true");
-        a11yButton.setAttribute("role", "presentation"); 
-        (a11yButton as HTMLElement).tabIndex = -1; // prevents keyboard focus
-    });
+    // //Removes project titles’ accessibility because they interfere with pop up accessible navigation.
+    // a11yButtons.forEach(a11yButton => {
+    //     a11yButton.setAttribute("aria-hidden", "true");
+    //     a11yButton.setAttribute("role", "presentation"); 
+    //     (a11yButton as HTMLElement).tabIndex = -1; // prevents keyboard focus
+    // });
 
   }
 

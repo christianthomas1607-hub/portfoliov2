@@ -2,6 +2,7 @@ import { useTexture, Text, Box  } from '@react-three/drei'
 import { WordAndImageData } from '../components/data'
 
 import { useState } from 'react'; 
+import { Fragment } from 'react';
 
 import 
 {
@@ -27,6 +28,7 @@ export default function TexturedBox({ onClick }: { onClick: (item: typeof WordAn
     <>
      {WordAndImageData.map((item, index) => {
         // increment and read the per-category index
+        
         const cat = item.category ?? 'default';
         if (!categoryCounts[cat]) categoryCounts[cat] = 0;
         let perCategoryIndex = categoryCounts[cat]++;
@@ -98,36 +100,33 @@ export default function TexturedBox({ onClick }: { onClick: (item: typeof WordAn
         const borderChildFunction = useBorderExportFunction.borderSizesFocus;
         
         return (
-          <>
-          <A11y
-          role="button"
-          description={item.title}
-          actionCall={() => 
-            {
-              onClick(item);
-            }
-          }
-          >
-          <BoxStyle
-            key={`${cat}-${perCategoryIndex}-${index}`}
-            x={positionX}
-            y={2.75}
-            z={positionZ}
-            rotationY={rotationY}
-            image={item.imgMain}
-            title={item.title}
-            category={item.category}
-            index={perCategoryIndex}
-            onClick={() => onClick(item)}
-            boxPositionY={boxPositionY}
-            triangleWidth={triangleWidth}
-            boxGeometryArgs={boxGeometryArgs}
-            textPosition={textPosition}
-            borderFocus={focused}
-            focusFunction={borderChildFunction}
-          />
-          </A11y>
-          </>
+          <Fragment key={`${cat}-${perCategoryIndex}-${index}`}>
+            {/* <A11y
+              role="button"
+              description={item.title}
+              actionCall={() => {
+                onClick(item);
+              }}
+            > */}
+              <BoxStyle
+                x={positionX}
+                y={2.75}
+                z={positionZ}
+                rotationY={rotationY}
+                image={item.imgMain}
+                title={item.title}
+                category={item.category}
+                index={perCategoryIndex}
+                onClick={() => onClick(item)}
+                boxPositionY={boxPositionY}
+                triangleWidth={triangleWidth}
+                boxGeometryArgs={boxGeometryArgs}
+                textPosition={textPosition}
+                borderFocus={focused}
+                focusFunction={borderChildFunction}
+              />
+            {/* </A11y> */}
+          </Fragment>
         );
       })}
 
@@ -182,18 +181,15 @@ export default function TexturedBox({ onClick }: { onClick: (item: typeof WordAn
         }
 
         return (
-          <>
-          
-          <CategoryTitle
-            key={`${category}-${idx}`}
-            x={titleX}
-            y={titleY}
-            z={titleZ}
-            rotationY={titleRotationY}
-            title={category}
-          />
-          
-          </>
+          <Fragment key={`${category}-${idx}`}>
+            <CategoryTitle
+              x={titleX}
+              y={titleY}
+              z={titleZ}
+              rotationY={titleRotationY}
+              title={category}
+            />
+          </Fragment>
         );
       })}
 
